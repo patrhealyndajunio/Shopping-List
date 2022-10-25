@@ -10,7 +10,7 @@ import { Items } from './shoppingList';
 export class AppComponent {
   title = 'Shopping-List';
 
-  item : Items = {
+  item: Items = {
     itemID: 1,
     itemName: 'Milk',
     itemQuantity: 7,
@@ -18,17 +18,17 @@ export class AppComponent {
     itemDescription: 'This is a evaporated milk.'
   }
 
-model = new Items(11, 'MILK','This is a evaporated milk.', 7, 143.25 );
+  model = new Items(11, 'MILK', 'This is a evaporated milk.', 7, 143.25);
 
   submitted = false;
 
-constructor(private localDataService: LocalDataService) {
+  constructor(private localDataService: LocalDataService) {
 
-}    
+  }
 
-consoleLog() {
- console.log("storedShoppingList" , this.localDataService.shoppingItems);
-}
+  consoleLog() {
+    console.log("storedShoppingList", this.localDataService.shoppingItems);
+  }
 
   onSubmit() { this.submitted = true; }
 
@@ -38,6 +38,6 @@ consoleLog() {
 
   showFormControls(list: any) {
     return list && list.controls.itemName &&
-    list.controls.itemName.value;
+      list.controls.itemName.value;
   }
 }

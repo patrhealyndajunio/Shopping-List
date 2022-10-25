@@ -17,21 +17,21 @@ export class AddListComponent implements OnInit {
 
   }
 
-  model = new Items(11, 'MILK','This is an evaporated milk.', 7, 143.25 );
+  model = new Items(11, 'MILK', 'This is an evaporated milk.', 7, 143.25);
 
   submitted = false;
 
-  onSubmit() { 
+  onSubmit() {
     console.log("Onsubtmit");
-    this.submitted = true; 
+    this.submitted = true;
     this.localDataService.shoppingItems.push(
       new Items(
-          this.model.itemID,
-          this.model.itemName,
-          this.model.itemDescription,
-          this.model.itemQuantity,
-          this.model.itemPrice
-        ));
+        this.model.itemID,
+        this.model.itemName,
+        this.model.itemDescription,
+        this.model.itemQuantity,
+        this.model.itemPrice
+      ));
     console.log("Onsubtmitclose");
 
   }
@@ -42,7 +42,7 @@ export class AddListComponent implements OnInit {
 
   showFormControls(list: any) {
     return list && list.controls.itemName &&
-    list.controls.itemName.value;
+      list.controls.itemName.value;
   }
 
   title = 'Add Items';

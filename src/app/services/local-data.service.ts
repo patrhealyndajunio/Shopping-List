@@ -5,4 +5,3 @@ import { Items } from "../shoppingList";
 export class LocalDataService {
     shoppingItems = new Array<Items>();
 }
-

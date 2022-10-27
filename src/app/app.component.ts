@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import { LocalDataService } from './services/local-data.service';
 import { Items } from './shoppingList';
+import { enableProdMode } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent {
   title = 'Shopping-List';
 
@@ -32,12 +34,14 @@ export class AppComponent {
 
   onSubmit() { this.submitted = true; }
 
-  newItem() {
-    this.model = new Items(0, '', '', 0, 0);
-  }
+  // newItem() {
+  //   this.model = new Items(0, '', '', 0, 0);
+  // }
 
   showFormControls(list: any) {
     return list && list.controls.itemName &&
       list.controls.itemName.value;
   }
 }
+
+enableProdMode();

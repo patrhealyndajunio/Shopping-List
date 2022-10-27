@@ -66,7 +66,7 @@ button:hover {
 
 /* Add padding to container elements */
 .container {
-  background-color: #04AA6D;
+  background-color: #9ba09e;
   padding: 16px;
 }
 
@@ -119,6 +119,14 @@ hr {
   content: "";
   clear: both;
   display: table;
+}
+
+.ng-valid[required], .ng-valid.required  {
+  border-left: 15px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form)  {
+  border-left: 15px solid #a94442; /* red */
 }
 
 /* Change styles for cancel button and signup button on extra small screens */

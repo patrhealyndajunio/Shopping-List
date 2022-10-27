@@ -34,6 +34,11 @@ export class AddListComponent implements OnInit {
       ));
     console.log("Onsubtmitclose");
 
+    // let newItem = [{ Items }];
+    // console.log(newItem);
+    // let projectNames = this.localDataService.map(item => {
+    //   return item.Items.name;
+    // });
   }
 
   newItem(): void {
@@ -44,6 +49,8 @@ export class AddListComponent implements OnInit {
     return list && list.controls.itemName &&
       list.controls.itemName.value;
   }
+
+  items = this.localDataService.shoppingItems.values();
 
   title = 'Add Items';
 }

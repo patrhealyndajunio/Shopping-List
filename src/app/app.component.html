@@ -1,7 +1,7 @@
 <div>
   <h1>Shopping List <img class="shopListLogo" src="https://i.postimg.cc/L597bgcY/shopping-List-Logo.png"></h1>
   <!-- <h2 class="emptyList">Shopping List is Empty</h2> -->
-  <table class="tableList"  *ngFor="let item of localDataService.shoppingItems">
+  <table class="tableList">
     <tr>
       <th>ID</th>
       <th>NAME</th>
@@ -9,7 +9,7 @@
       <th>PRICE</th>
       <th>DESCRIPTION</th>
     </tr>
-    <tr>
+    <tr *ngFor="let item of localDataService.shoppingItems">
       <td>{{item.itemID}}</td>
       <td>{{item.itemName | uppercase}}</td>
       <td>{{item.itemQuantity}}</td>
@@ -24,29 +24,26 @@
     <button onclick="document.getElementById('id03').style.display='block'" class="deleteBtn"><b>DELETE
         ITEM</b></button>
   </div>
-
   <div [hidden]="!submitted">
     <form (ngSubmit)="onSubmit()" #itemForm="ngForm">
       <h2>You submitted the following:</h2>
-        <div class="row">
-          <div class="col-xs-3">Name</div>
-          <div class="col-xs-9">{{ model.itemName }}</div>
-        </div>
-        <div class="row">
-          <div class="col-xs-3">Alter Ego</div>
-          <div class="col-xs-9">{{ model.itemPrice }}</div>
-        </div>
-        <div class="row">
-          <div class="col-xs-3">Power</div>
-          <div class="col-xs-9">{{ model.itemDescription }}</div>
-        </div>
-        <br />
-        <button type="button" class="btn btn-primary" (click)="submitted = false">
-          Edit 1
-        </button>
+      <div class="row">
+        <div class="col-xs-3">Name</div>
+        <div class="col-xs-9">{{ model.itemName }}</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3">Alter Ego</div>
+        <div class="col-xs-9">{{ model.itemPrice }}</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3">Power</div>
+        <div class="col-xs-9">{{ model.itemDescription }}</div>
+      </div>
+      <br />
+      <button type="button" class="btn btn-primary" (click)="submitted = false">
+        Edit 1
+      </button>
     </form>
   </div>
-  <!-- <button type="button" class="btn btn-primary" (click)="consoleLog()">TEST</button> -->
-
   <add-list></add-list>
 </div>

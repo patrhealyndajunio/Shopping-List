@@ -28,10 +28,6 @@ export class AppComponent {
 
   }
 
-  consoleLog() {
-    console.log("storedShoppingList", this.localDataService.shoppingItems);
-  }
-
   onSubmit() { this.submitted = true; }
 
   showFormControls(list: any) {

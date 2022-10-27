@@ -14,7 +14,6 @@ export class AddListComponent implements OnInit {
   }
 
   constructor(private localDataService: LocalDataService) {
-
   }
 
   model = new Items(11, 'MILK', 'This is an evaporated milk.', 7, 143.25);
@@ -22,18 +21,15 @@ export class AddListComponent implements OnInit {
   submitted = false;
 
   onSubmit() {
-    console.log("Onsubtmit");
     this.submitted = true;
     this.localDataService.shoppingItems.push(
       new Items(
-        this.model.itemID,
+        this.model.itemID++,
         this.model.itemName,
         this.model.itemDescription,
         this.model.itemQuantity,
         this.model.itemPrice
       ));
-    console.log("Onsubtmitclose");
-
   }
 
   newItem(): void {
@@ -44,8 +40,5 @@ export class AddListComponent implements OnInit {
     return list && list.controls.itemName &&
       list.controls.itemName.value;
   }
-
-  items = this.localDataService.shoppingItems.values();
-
   title = 'Add Items';
 }

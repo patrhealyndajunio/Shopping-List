@@ -1,7 +1,7 @@
 <div>
   <h1>Shopping List <img class="shopListLogo" src="https://i.postimg.cc/L597bgcY/shopping-List-Logo.png"></h1>
   <!-- <h2 class="emptyList">Shopping List is Empty</h2> -->
-  <table class="tableList">
+  <table class="tableList"  *ngFor="let item of localDataService.shoppingItems">
     <tr>
       <th>ID</th>
       <th>NAME</th>
@@ -46,7 +46,7 @@
         </button>
     </form>
   </div>
-  <button type="button" class="btn btn-primary" (click)="consoleLog()">TEST</button>
+  <!-- <button type="button" class="btn btn-primary" (click)="consoleLog()">TEST</button> -->
 
   <add-list></add-list>
 </div>

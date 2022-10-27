@@ -34,11 +34,6 @@ export class AddListComponent implements OnInit {
       ));
     console.log("Onsubtmitclose");
 
-    // let newItem = [{ Items }];
-    // console.log(newItem);
-    // let projectNames = this.localDataService.map(item => {
-    //   return item.Items.name;
-    // });
   }
 
   newItem(): void {

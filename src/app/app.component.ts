@@ -24,7 +24,7 @@ export class AppComponent {
 
   submitted = false;
 
-  constructor(private localDataService: LocalDataService) {
+  constructor(public localDataService: LocalDataService) {
 
   }
 
@@ -33,10 +33,6 @@ export class AppComponent {
   }
 
   onSubmit() { this.submitted = true; }
-
-  // newItem() {
-  //   this.model = new Items(0, '', '', 0, 0);
-  // }
 
   showFormControls(list: any) {
     return list && list.controls.itemName &&

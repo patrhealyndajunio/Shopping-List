@@ -19,30 +19,28 @@
   </table>
   <div class="container">
     <button onclick="document.getElementById('id01').style.display='block'" class="addBtn"><b>ADD ITEM</b></button>
-    <button onclick="document.getElementById('id02').style.display='block'" class="updateBtn"><b>UPDATE
-        ITEM</b></button>
-    <button onclick="document.getElementById('id03').style.display='block'" class="deleteBtn"><b>DELETE
-        ITEM</b></button>
+    <button onclick="document.getElementById('id02').style.display='block'" class="updateBtn"><b>UPDATE ITEM</b></button>
+    <button onclick="document.getElementById('id03').style.display='block'" class="deleteBtn"><b>DELETE ITEM</b></button>
   </div>
   <div [hidden]="!submitted">
     <form (ngSubmit)="onSubmit()" #itemForm="ngForm">
       <h2>You submitted the following:</h2>
-      <div class="row">
-        <div class="col-xs-3">Name</div>
-        <div class="col-xs-9">{{ model.itemName }}</div>
-      </div>
-      <div class="row">
-        <div class="col-xs-3">Alter Ego</div>
-        <div class="col-xs-9">{{ model.itemPrice }}</div>
-      </div>
-      <div class="row">
-        <div class="col-xs-3">Power</div>
-        <div class="col-xs-9">{{ model.itemDescription }}</div>
-      </div>
-      <br />
-      <button type="button" class="btn btn-primary" (click)="submitted = false">
-        Edit 1
-      </button>
+        <div class="row">
+          <div class="col-xs-3">Name</div>
+          <div class="col-xs-9">{{ model.itemName }}</div>
+        </div>
+        <div class="row">
+          <div class="col-xs-3">Alter Ego</div>
+          <div class="col-xs-9">{{ model.itemPrice }}</div>
+        </div>
+        <div class="row">
+          <div class="col-xs-3">Power</div>
+          <div class="col-xs-9">{{ model.itemDescription }}</div>
+        </div>
+        <br />
+        <button type="button" class="btn btn-primary" (click)="submitted = false">
+          Edit 1
+        </button>
     </form>
   </div>
   <add-list></add-list>

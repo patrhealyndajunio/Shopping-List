@@ -12,24 +12,24 @@
             <div [hidden]="itemID.valid || itemID.pristine" class="alert alert-danger">Item ID is required.</div>
 
             <label for="itemName"><b>NAME *</b></label>
-            <input type="text" id="itemName" [(ngModel)]="model.itemName" placeholder="ex. MILK" name="itemName"
+            <input type="text" id="itemName" maxlength="50" [(ngModel)]="model.itemName" placeholder="ex. MILK" name="itemName"
                 required #itemName="ngModel" />
             <div [hidden]="itemName.valid || itemName.pristine" class="alert alert-danger">Item NAME is required.</div>
 
             <label for="itemQuantity"><b>QUANTITY *</b></label>
-            <input type="text" id="itemQuantity" [(ngModel)]="model.itemQuantity" placeholder="ex. 7"
+            <input type="number" min="1" id="itemQuantity" [(ngModel)]="model.itemQuantity" placeholder="ex. 7"
                 name="itemQuantity" required #itemQuantity="ngModel" />
             <div [hidden]="itemQuantity.valid || itemQuantity.pristine" class="alert alert-danger">Item QUANTITY is
                 required.</div>
 
             <label for="itemPrice"><b>PRICE *</b></label>
-            <input type="text" id="itemPrice" [(ngModel)]="model.itemPrice" placeholder="ex. 143.25" name="itemPrice"
+            <input type="number" id="itemPrice" [(ngModel)]="model.itemPrice" placeholder="ex. 143.25" name="itemPrice"
                 required #itemPrice="ngModel" />
             <div [hidden]="itemPrice.valid || itemPrice.pristine" class="alert alert-danger">Item PRICE is required.
             </div>
 
             <label for="itemDescription"><b>DESCRIPTION *</b></label>
-            <input type="text" id="itemDescription" [(ngModel)]="model.itemDescription"
+            <input type="text" maxlength="100" id="itemDescription" [(ngModel)]="model.itemDescription"
                 placeholder="ex. This is a evaporated milk." name="itemDescription" #itemDescription="ngModel" />
         </div>
     </form>

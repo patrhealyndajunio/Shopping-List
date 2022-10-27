@@ -6,7 +6,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 }
 
 /* Full-width input fields */
-input[type=text], input[type=password] {
+input[type=text], input[type=password], input[type=number], input[type=range] {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -15,7 +15,7 @@ input[type=text], input[type=password] {
   background: #f1ecec;
 }
 
-textarea[type=text], textarea[type=password] {
+textarea[type=text], textarea[type=password], input[type=number], input[type=range] {
     width: 100%;
     padding: 15px;
     margin: 5px 0 22px 0;

@@ -16,12 +16,11 @@ export class AddListComponent implements OnInit {
   constructor(private localDataService: LocalDataService) {
   }
 
-  model = new Items(11, 'MILK', 'This is an evaporated milk.', 7, 143.25);
+  model = new Items(1, 'MILK', 'This is an evaporated milk.', 7, 143.25);
 
   submitted = false;
 
   onSubmit() {
-    this.submitted = true;
     this.localDataService.shoppingItems.push(
       new Items(
         this.model.itemID++,
@@ -30,6 +29,8 @@ export class AddListComponent implements OnInit {
         this.model.itemQuantity,
         this.model.itemPrice
       ));
+
+      this.submitted = true;
   }
 
   newItem(): void {

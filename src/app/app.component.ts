@@ -21,8 +21,6 @@ export class AppComponent {
     itemDescription: 'This is a evaporated milk.'
   }
 
-  model = new Items(11, 'MILK', 'This is a evaporated milk.', 7, 143.25);
-
   submitted = false;
 
   constructor(public localDataService: LocalDataService) {

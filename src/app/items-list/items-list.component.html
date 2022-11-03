@@ -1,1 +1,17 @@
-<p>items-list works!</p>
+<table class="tableList">
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>QUANTITY</th>
+        <th>PRICE</th>
+        <th>DESCRIPTION</th>
+    </tr>
+    <tr *ngFor="let item of localDataService.shoppingItems">
+        <td>{{item.itemID}}</td>
+        <td>{{item.itemName | uppercase}}</td>
+        <td>{{item.itemQuantity}}</td>
+        <td>{{item.itemPrice | currency:'PHP' : 'symbol':'1.2-2'}}</td>
+        <td>{{item.itemDescription}}</td>
+    </tr>
+</table>
+<h2 class="emptyList" [hidden]="!submitted">Shopping List is Empty</h2>

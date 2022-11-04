@@ -1,29 +1,12 @@
 <div>
   <h1>Shopping List <img class="shopListLogo" src="https://i.postimg.cc/L597bgcY/shopping-List-Logo.png"></h1>
-  <!-- <h2 class="emptyList" [hidden]="!submitted">Shopping List is Empty</h2>
-  <table class="tableList">
-    <tr>
-      <th>ID</th>
-      <th>NAME</th>
-      <th>QUANTITY</th>
-      <th>PRICE</th>
-      <th>DESCRIPTION</th>
-      
-    </tr>
-    <tr *ngFor="let item of localDataService.shoppingItems">
-      <td>{{item.itemID}}</td>
-      <td>{{item.itemName | uppercase}}</td>
-      <td>{{item.itemQuantity}}</td>
-      <td>{{item.itemPrice | currency:'PHP' : 'symbol':'1.2-2'}}</td>
-      <td>{{item.itemDescription}}</td>
-    </tr>
-  </table> -->
-  <add-list></add-list>
-  <app-items-list></app-items-list>
-  <div class="container">
-    <button onclick="document.getElementById('id01').style.display='block'" class="addBtn"><b>ADD ITEM</b></button>
-    <button routerLink="add-list" class="updateBtn"><b>UPDATE ITEM</b></button>
-    <button routerLink="/app" class="deleteBtn"><b>DELETE ITEM</b></button>
-  </div>
+  <items-list></items-list>
   <router-outlet></router-outlet>
+  <div class="container">
+    <nav>
+      <button routerLink="/add-list" class="addBtn"><b>ADD ITEM</b></button>
+      <button routerLink="/update-list" class="updateBtn"><b>UPDATE ITEM</b></button>
+      <button routerLink="/delete-list" class="deleteBtn"><b>DELETE ITEM</b></button>
+    </nav>
+  </div>
 </div>

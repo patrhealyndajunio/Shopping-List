@@ -4,7 +4,7 @@ import { Items } from '../shoppingList';
 
 
 @Component({
-  selector: 'app-items-list',
+  selector: 'items-list',
   templateUrl: './items-list.component.html',
   styleUrls: ['./items-list.component.scss']
 })

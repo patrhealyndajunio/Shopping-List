@@ -1,7 +1,7 @@
-<div id="id01" class="modal">
+<div id="id01">
     <span onclick="document.getElementById('id01').style.display='none'" class="close"
         title="Close Modal">&times;</span>
-    <form class="modal-content" action="/add-list.ts">
+    <form class="modal-content" action="/add-list">
         <div class="container">
             <h1 class="addListLabel">{{title}}</h1>
             <p>Please fill in this form to add items.</p>
@@ -32,14 +32,13 @@
             <input type="text" maxlength="100" id="itemDescription" [(ngModel)]="model.itemDescription"
                 placeholder="ex. This is a evaporated milk." name="itemDescription" #itemDescription="ngModel" />
         </div>
-    </form>
 
-    <div class="clearfix">
-        <div>
-            <form (ngSubmit)="onSubmit()" #itemForm="ngForm">
-                <button type="button" class="cancelbtn" (click)="newItem(); itemForm.reset()">RESET</button>
-                <button type="addbtn" class="addbtn" [disabled]="!itemForm.form.valid">ADD</button>
-            </form>
+        <div class="clearfix">
+            <div>
+                <form (ngSubmit)="onSubmit()" #itemForm="ngForm">
+                    <button type="button" class="cancelbtn" (click)="newItem(); itemForm.reset()">RESET</button>
+                    <button type="addbtn" class="addbtn" [disabled]="!itemForm.form.valid">ADD</button>
+                </form>
+            </div>
         </div>
-    </div>
-</div>
+    </form>

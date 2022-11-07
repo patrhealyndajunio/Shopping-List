@@ -8,6 +8,7 @@ import { UpdateListComponent } from './update-list/update-list.component';
 import { DeleteListComponent } from './delete-list/delete-list.component';
 import { ItemsListComponent } from './items-list/items-list.component';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,13 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule],
+    FormsModule,
+    RouterModule.forRoot([
+      { path: 'add-list', component: AddListComponent },
+      { path: 'item-list', component: ItemsListComponent },
+      { path: 'delete-list', component: DeleteListComponent}
+    ]),
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

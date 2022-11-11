@@ -46,11 +46,6 @@ onClick(): void {
   
 }
 
-delete(item: Items): void {
-  this.localDataService.shoppingItems = this.localDataService.shoppingItems.filter(i => i !== item);
-  this.localDataService.deleteItem(item.itemID).subscribe()
-
-}
-
 title = 'Add Items';
 }
+

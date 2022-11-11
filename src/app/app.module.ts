@@ -16,7 +16,7 @@ import { RouterModule } from '@angular/router';
     AddListComponent,
     UpdateListComponent,
     DeleteListComponent,
-    ItemsListComponent
+    ItemsListComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,7 +25,7 @@ import { RouterModule } from '@angular/router';
     RouterModule.forRoot([
       { path: 'add-list', component: AddListComponent },
       { path: 'item-list', component: ItemsListComponent },
-      { path: 'delete-list', component: DeleteListComponent}
+      { path: 'delete-list', component: DeleteListComponent }
     ]),
   ],
   providers: [],

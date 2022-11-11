@@ -16,12 +16,15 @@
         <td>{{item.itemDescription}}</td>
     </tr>
 </table>
-
-<ul class="tableList">
+<ul class="itemList">
     <li *ngFor="let item of localDataService.shoppingItems">
         <a routerLink="/item-list/item.itemID">
-            <span>{{item.itemName}}</span>{{item.itemID}}
-            <button type="button" class="delete" (click)="delete(item)">x</button>
+            <p class="items">{{item.itemID}}</p>
+            <p class="items">{{item.itemName}}</p>
+            <p class="items">{{item.itemQuantity}}</p>
+            <p class="items">{{item.itemPrice}}</p>
+            <p class="items">{{item.itemDescription}}</p>
+            <button type="button" class="delete">x</button>
         </a>
     </li>
 </ul>

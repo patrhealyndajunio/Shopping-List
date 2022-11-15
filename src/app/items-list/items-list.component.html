@@ -7,6 +7,7 @@
         <th>PRICE</th>
         <th>DESCRIPTION</th>
     </tr>
+    <tr class="emptyList" *ngIf="localDataService.shoppingItems.length === 0">Shopping List is Empty.</tr>
     <tr *ngFor="let item of localDataService.shoppingItems" (click)="onClick">
         <td><input type="radio" id="html" name="btnCheckList" value="HTML">
         <td>{{item.itemID}}</td>
@@ -16,7 +17,7 @@
         <td>{{item.itemDescription}}</td>
     </tr>
 </table>
-<ul class="itemList">
+<!-- <ul class="itemList">
     <li *ngFor="let item of localDataService.shoppingItems">
         <a routerLink="/item-list/item.itemID">
             <p class="items">{{item.itemID}}</p>
@@ -24,7 +25,7 @@
             <p class="items">{{item.itemQuantity}}</p>
             <p class="items">{{item.itemPrice}}</p>
             <p class="items">{{item.itemDescription}}</p>
-            <button type="button" class="delete">x</button>
+            <button type="button" class="delete" click="clearItem()">x</button>
         </a>
     </li>
-</ul>
+</ul> -->

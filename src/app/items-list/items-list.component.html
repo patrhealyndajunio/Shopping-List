@@ -7,7 +7,6 @@
         <th>PRICE</th>
         <th>DESCRIPTION</th>
     </tr>
-    <tr class="emptyList" *ngIf="localDataService.shoppingItems.length === 0">Shopping List is Empty.</tr>
     <tr *ngFor="let item of localDataService.shoppingItems" (click)="onClick">
         <td><input type="radio" id="html" name="btnCheckList" value="HTML">
         <td>{{item.itemID}}</td>
@@ -16,6 +15,9 @@
         <td>{{item.itemPrice | currency:'PHP' : 'symbol':'1.2-2'}}</td>
         <td>{{item.itemDescription}}</td>
     </tr>
+</table>
+<table class="emptyList" *ngIf="localDataService.shoppingItems.length === 0">
+    <p>Shopping List is Empty.</p>
 </table>
 <!-- <ul class="itemList">
     <li *ngFor="let item of localDataService.shoppingItems">

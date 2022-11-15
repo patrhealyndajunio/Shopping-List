@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LocalDataService } from '../services/local-data.service';
 import { Items } from '../shoppingList';
 
@@ -8,11 +8,14 @@ import { Items } from '../shoppingList';
   templateUrl: './items-list.component.html',
   styleUrls: ['./items-list.component.scss']
 })
+export class ItemsListComponent implements OnInit {
 
-export class ItemsListComponent {
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
 
   constructor(public localDataService: LocalDataService) {
-
+  
   }
 
   itemList = true;
@@ -30,12 +33,12 @@ export class ItemsListComponent {
         this.model.itemQuantity,
         this.model.itemPrice
       ));
-    console.log(Items);
+
     this.submitted = true;
   }
 
   newItem(): void {
-    this.model = new Items(12, 'MILO', 'This is a energy drink.', 8, 143.75);
+    this.model = new Items(12, 'MILO', 'This is a energy drink.', 8, 70.25);
   }
 
   showFormControls(list: any) {

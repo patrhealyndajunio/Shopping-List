@@ -50,14 +50,11 @@ export class ItemsListComponent {
 
   deleteItem(itemID: any) {
     let index = this.localDataService.shoppingItems.findIndex(item => item.itemID === itemID);
-    console.log("itemID1");
 
-    if(index !== -1){
+    if(index === -1){
       this.localDataService.shoppingItems.splice(index,1);
-      console.log("itemID2");
-
     }
-    console.log("itemID3");
+    console.log(index);
   }
 
 }

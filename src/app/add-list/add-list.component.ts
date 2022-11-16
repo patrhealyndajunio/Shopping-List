@@ -8,10 +8,7 @@ import { Items } from '../shoppingList';
   styleUrls: ['././add-list.component.scss']
 })
 
-export class AddListComponent implements OnInit {
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
+export class AddListComponent {
 
   constructor(private localDataService: LocalDataService) {
   }

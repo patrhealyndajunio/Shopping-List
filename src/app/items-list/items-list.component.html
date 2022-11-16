@@ -1,23 +1,22 @@
 <table class="tableList">
     <tr>
-        <th>&#10004;</th>
         <th>ID</th>
         <th>NAME</th>
         <th>QUANTITY</th>
         <th>PRICE</th>
         <th>DESCRIPTION</th>
     </tr>
-    <tr *ngFor="let item of localDataService.shoppingItems" (click)="onClick">
-        <td><input type="radio" id="html" name="btnCheckList" value="HTML">
+    <tr *ngFor="let item of localDataService.shoppingItems" class="itemList">
         <td>{{item.itemID}}</td>
-        <td>{{item.itemName | uppercase}}</td>
+        <td><a>{{item.itemName | uppercase}}</a></td>
         <td>{{item.itemQuantity}}</td>
         <td>{{item.itemPrice | currency:'PHP' : 'symbol':'1.2-2'}}</td>
         <td>{{item.itemDescription}}</td>
+        <td><button type="button" class="delete" (click)="deleteItem(item)">x</button></td>
     </tr>
 </table>
 <table class="emptyList" *ngIf="localDataService.shoppingItems.length === 0">
-    <p>Shopping List is Empty.</p>
+    <br><p>Shopping List is Empty.<br/></p>
 </table>
 <!-- <ul class="itemList">
     <li *ngFor="let item of localDataService.shoppingItems">

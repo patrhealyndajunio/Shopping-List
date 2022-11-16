@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { LocalDataService } from '../services/local-data.service';
 import { Items } from '../shoppingList';
 
@@ -8,17 +8,14 @@ import { Items } from '../shoppingList';
   templateUrl: './items-list.component.html',
   styleUrls: ['./items-list.component.scss']
 })
-export class ItemsListComponent implements OnInit {
+export class ItemsListComponent {
 
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
+  title = 'Add Items';
 
   constructor(public localDataService: LocalDataService) {
-  
+
   }
 
-  itemList = true;
 
   model = new Items(1, 'MILK', 'This is an evaporated milk.', 7, 143.25);
 
@@ -46,16 +43,22 @@ export class ItemsListComponent implements OnInit {
       list.controls.itemName.value;
   }
 
-  onClick(): void {
-
-  }
-
   clearItem() {
     this.localDataService.shoppingItems = [];
     return this.newItem;
-    console.log('clearItem')
   }
 
-  title = 'Add Items';
+  deleteItem(itemID: any) {
+    let index = this.localDataService.shoppingItems.findIndex(item => item.itemID === itemID);
+    console.log("itemID1");
+
+    if(index !== -1){
+      this.localDataService.shoppingItems.splice(index,1);
+      console.log("itemID2");
+
+    }
+    console.log("itemID3");
+  }
+
 }
 

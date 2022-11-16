@@ -137,12 +137,12 @@ button:hover {
   width: 100%;
 }
 
-.itemList li {
+.itemList tr {
   position: relative;
   cursor: pointer;
 }
 
-.itemList li:hover {
+.itemList tr:hover {
   left: .1em;
 }
 
@@ -150,17 +150,14 @@ button:hover {
   color: black;
   text-decoration: none;
   background-color: azure;
-  margin: .5em;
-  padding: 5px;
-  height: 1.6em;
-  border-radius: 4px;
+  border-radius: 1px;
   display: block;
   width: 100%;
 }
 
 .itemList a:hover {
-  color: #049e66;
-  background-color: azure;
+  color: azure;
+  background-color: #049e66;
 }
 
 .itemList a:active {
@@ -183,5 +180,4 @@ button.delete {
   background-color: #f44336;
   margin: 0;
   padding: 5px;
-  width: 5%;
 }

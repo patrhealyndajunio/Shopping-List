@@ -9,6 +9,7 @@ import { DeleteListComponent } from './delete-list/delete-list.component';
 import { ItemsListComponent } from './items-list/items-list.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { RouterModule } from '@angular/router';
     UpdateListComponent,
     DeleteListComponent,
     ItemsListComponent,
+    TestComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,7 +27,8 @@ import { RouterModule } from '@angular/router';
     RouterModule.forRoot([
       { path: 'add-list', component: AddListComponent },
       { path: 'item-list', component: ItemsListComponent },
-      { path: 'delete-list', component: DeleteListComponent }
+      { path: 'delete-list', component: DeleteListComponent },
+      { path: 'update-list/:id', component: UpdateListComponent}
     ]),
   ],
   providers: [],

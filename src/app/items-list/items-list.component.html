@@ -8,25 +8,14 @@
     </tr>
     <tr *ngFor="let item of localDataService.shoppingItems" class="itemList">
         <td>{{item.itemID}}</td>
-        <td><a>{{item.itemName | uppercase}}</a></td>
+        <td>{{item.itemName | uppercase}}</td>
         <td>{{item.itemQuantity}}</td>
         <td>{{item.itemPrice | currency:'PHP' : 'symbol':'1.2-2'}}</td>
         <td>{{item.itemDescription}}</td>
-        <td><button type="button" class="delete" (click)="deleteItem(item)">x</button></td>
+        <td><button type="button" class="delete" (click)="deleteItem(item.itemID)">x</button></td>
+        <td><a routerLink="/update-list/{{item.itemID}}">Update</a></td>
     </tr>
 </table>
 <table class="emptyList" *ngIf="localDataService.shoppingItems.length === 0">
     <br><p>Shopping List is Empty.<br/></p>
 </table>
-<!-- <ul class="itemList">
-    <li *ngFor="let item of localDataService.shoppingItems">
-        <a routerLink="/item-list/item.itemID">
-            <p class="items">{{item.itemID}}</p>
-            <p class="items">{{item.itemName}}</p>
-            <p class="items">{{item.itemQuantity}}</p>
-            <p class="items">{{item.itemPrice}}</p>
-            <p class="items">{{item.itemDescription}}</p>
-            <button type="button" class="delete" click="clearItem()">x</button>
-        </a>
-    </li>
-</ul> -->

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { LocalDataService } from '../services/local-data.service';
 import { Items } from '../shoppingList';
 
@@ -31,7 +31,7 @@ export class AddListComponent {
   }
 
   newItem(): void {
-    this.model = new Items(12, 'MILO', 'This is a energy drink.', 8, 143.75);
+    this.model = new Items(this.model.itemID++, 'MILO', 'This is a energy drink.', 8, 143.75);
   }
 
   showFormControls(list: any) {

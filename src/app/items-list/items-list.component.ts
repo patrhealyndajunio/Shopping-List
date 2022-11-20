@@ -35,7 +35,7 @@ export class ItemsListComponent {
   }
 
   newItem(): void {
-    this.model = new Items(12, 'MILO', 'This is a energy drink.', 8, 70.25);
+    this.model = new Items(this.model.itemID, 'MILO', 'This is a energy drink.', 8, 70.25);
   }
 
   showFormControls(list: any) {
@@ -50,11 +50,18 @@ export class ItemsListComponent {
 
   deleteItem(itemID: any) {
     let index = this.localDataService.shoppingItems.findIndex(item => item.itemID === itemID);
+    console.log(index, "index value1");
+    console.log(itemID, "index itemID1");
 
-    if(index === -1){
-      this.localDataService.shoppingItems.splice(index,1);
+    if (index === 1) {
+      console.log(index, "index value2");
+      this.localDataService.shoppingItems.splice(index, 1);
+      console.log(itemID, "index itemID2");
+
     }
-    console.log(index);
+    console.log(index, "index value3");
+    console.log(itemID, "index itemID3");
+
   }
 
 }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { LocalDataService } from './services/local-data.service';
-import { Items } from './shoppingList';
+import { Item } from './shoppingList';
 import { enableProdMode } from '@angular/core';
 
 @Component({
@@ -13,7 +13,9 @@ export class AppComponent {
   
   title = 'Shopping-List';
 
-  item: Items = {
+  count = 0;
+
+  item: Item = {
     itemID: 1,
     itemName: 'Milk',
     itemQuantity: 7,
@@ -27,11 +29,36 @@ export class AppComponent {
 
   }
 
+  thisDoesSomething(): void {
+    this.count = 100;
+  }
+
+  getNumber(num: number): number {
+    return 30 + num;
+  }
+
+  getSampleMultiParam(param1: number, param2: number) {
+    return null;
+  }
+
   onSubmit() { this.submitted = true; }
 
   showFormControls(list: any) {
     return list && list.controls.itemName &&
       list.controls.itemName.value;
+  }
+
+ 
+
+  addCount() {
+    let scopedCount = 1;
+    this.count += scopedCount;
+    scopedCount = 100;
+
+  }
+
+  subtractCount() {
+    this.count --;
   }
 }
 

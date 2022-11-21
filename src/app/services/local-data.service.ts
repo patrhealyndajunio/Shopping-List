@@ -1,9 +1,9 @@
 import { Injectable } from "@angular/core";
-import { Items } from "../shoppingList";
+import { Item } from "../shoppingList";
 
 @Injectable({ providedIn: "root" })
 export class LocalDataService {
 
-  shoppingItems = new Array<Items>();
+  shoppingItems = new Array<Item>();
 }
 

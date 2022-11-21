@@ -1,68 +1,25 @@
 import { Component } from '@angular/core';
 import { LocalDataService } from '../services/local-data.service';
-import { Items } from '../shoppingList';
+import { Item } from '../shoppingList';
 
 
 @Component({
-  selector: 'items-list',
+  selector: 'app-items-list',
   templateUrl: './items-list.component.html',
   styleUrls: ['./items-list.component.scss']
 })
 export class ItemsListComponent {
-
-  title = 'Add Items';
-
-  constructor(public localDataService: LocalDataService) {
-
-  }
-
-
-  model = new Items(1, 'MILK', 'This is an evaporated milk.', 7, 143.25);
-
-  submitted = false;
-
-  onSubmit() {
-    this.localDataService.shoppingItems.push(
-      new Items(
-        this.model.itemID++,
-        this.model.itemName,
-        this.model.itemDescription,
-        this.model.itemQuantity,
-        this.model.itemPrice
-      ));
-
-    this.submitted = true;
-  }
-
-  newItem(): void {
-    this.model = new Items(this.model.itemID, 'MILO', 'This is a energy drink.', 8, 70.25);
-  }
+  constructor(public localDataService: LocalDataService) {}
 
   showFormControls(list: any) {
     return list && list.controls.itemName &&
       list.controls.itemName.value;
   }
 
-  clearItem() {
-    this.localDataService.shoppingItems = [];
-    return this.newItem;
-  }
-
   deleteItem(itemID: any) {
-    let index = this.localDataService.shoppingItems.findIndex(item => item.itemID === itemID);
-    console.log(index, "index value1");
-    console.log(itemID, "index itemID1");
-
-    if (index === 1) {
-      console.log(index, "index value2");
-      this.localDataService.shoppingItems.splice(index, 1);
-      console.log(itemID, "index itemID2");
-
-    }
-    console.log(index, "index value3");
-    console.log(itemID, "index itemID3");
-
+    const index = this.localDataService.shoppingItems.findIndex(item => item.itemID === itemID);
+    this.localDataService.shoppingItems.splice(index, 1);
+    console.log(this.localDataService.shoppingItems);
   }
 
 }
-

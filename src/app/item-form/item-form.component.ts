@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, NgForm } from '@angular/forms';
 import { LocalDataService } from '../services/local-data.service';
 import { Item } from '../shoppingList';
 
@@ -10,24 +11,30 @@ import { Item } from '../shoppingList';
 export class ItemFormComponent {
 
   title = 'To be changed';
-  model = new Item(1, 'MILK', 'This is an evaporated milk.', 7, 143.25);
+  model = new Item(1);
 
+  itemID = 0;
+  itemName = '';
+  itemDescription = '';
+  itemQuantity = '';
+  itemPrice = '';
+  
   /**
    * Remove ngOnInit since we don't have to do anything with it at the moment
    */
-  constructor(private localDataService: LocalDataService) {  }
+  constructor(private localDataService: LocalDataService) {
+    this.itemID = localDataService.getNextId();
+  }
 
-  onSubmit() {
-    this.localDataService.shoppingItems.push(
-      new Item(
-        this.model.itemID++,
-        this.model.itemName,
-        this.model.itemDescription,
-        this.model.itemQuantity,
-        this.model.itemPrice
-      ));
+  onSubmit(itemForm: NgForm) {
+    this.localDataService.addItem({
+      itemName: this.itemName,
+      itemDescription: this.itemDescription,
+      itemQuantity: parseInt(this.itemQuantity),
+      itemPrice: parseFloat(this.itemPrice),
+    });
 
-      // this.submitted = true;
+    itemForm.reset();
   }
 
   newItem(): void {

@@ -4,8 +4,8 @@ import { ItemFormComponent } from './item-form/item-form.component';
 import { ItemsListComponent } from './items-list/items-list.component';
 
 const routes: Routes = [
-  { path: 'add-list', component: ItemFormComponent },
-  { path: 'item-list', component: ItemsListComponent }
+  { path: 'shopping-list/create', component: ItemFormComponent },
+  { path: 'shopping-list/:id/edit', component: ItemFormComponent }
 ];
 
 @NgModule({

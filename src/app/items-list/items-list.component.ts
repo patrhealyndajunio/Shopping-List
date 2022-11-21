@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
+import { Router, NavigationStart, Event as NavigationEvent } from '@angular/router';
 import { LocalDataService } from '../services/local-data.service';
 
 @Component({
@@ -6,8 +7,25 @@ import { LocalDataService } from '../services/local-data.service';
   templateUrl: './items-list.component.html',
   styleUrls: ['./items-list.component.scss']
 })
-export class ItemsListComponent {
-  constructor(public localDataService: LocalDataService) {}
+export class ItemsListComponent implements OnDestroy {
+  event$;
+  url: string;
+
+  constructor(
+    public localDataService: LocalDataService,
+    private router: Router
+  ) {
+    this.url = this.router.url;
+    this.event$ = this.router.events.subscribe(
+      (event: NavigationEvent) => {
+        this.url = this.router.url;
+      }
+    );
+  }
+
+  ngOnDestroy() {
+    this.event$.unsubscribe();
+  }
 
   showFormControls(list: any) {
     return list && list.controls.itemName &&

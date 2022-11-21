@@ -1,41 +1,43 @@
 <br>
 <div>
-    <form class="addListForm" action="/add-list" #itemForm="ngForm">
+    <form class="addListForm" action="/add-list" #itemForm="ngForm" *ngIf="model">
         <div class="container">
             <h1 class="addListLabel">{{title}}</h1>
             <p>Please fill in this form to add items.</p>
             <hr>
             <label for="itemID"><b>ID *</b></label>
-            <input type="text" id="itemID" readonly [value]="itemID" placeholder="ex. 1" name="itemID" required />
+            <input type="text" id="itemID" readonly [value]="model.itemID" placeholder="ex. 1" name="itemID" required />
 
             <label for="itemName"><b>NAME *</b></label>
-            <input type="text" maxlength="50" [(ngModel)]="itemName" placeholder="ex. MILK" name="itemName" required
+            <input type="text" maxlength="50" [(ngModel)]="model.itemName" placeholder="ex. MILK" name="itemName" required
                 #nameCtrl="ngModel" />
             <div [hidden]="nameCtrl.valid || nameCtrl.pristine" class="alert alert-danger">Item NAME is required.</div>
 
             <label for="itemQuantity"><b>QUANTITY *</b></label>
-            <input type="number" min="1" [(ngModel)]="itemQuantity" placeholder="ex. 7" name="itemQuantity" required
+            <input type="number" min="1" [(ngModel)]="model.itemQuantity" placeholder="ex. 7" name="itemQuantity" required
                 #qtyCtrl="ngModel" />
             <div [hidden]="qtyCtrl.valid || qtyCtrl.pristine" class="alert alert-danger">
                 Item QUANTITY is required.
             </div>
 
             <label for="itemPrice"><b>PRICE *</b></label>
-            <input type="number" id="itemPrice" [(ngModel)]="itemPrice" placeholder="ex. 143.25" name="itemPrice"
-                required #priceCtrl="ngModel" />
+            <input type="number" id="itemPrice" [(ngModel)]="model.itemPrice" placeholder="ex. 143.25" name="itemPrice"
+                required #priceCtrl="ngModel" min="1" />
             <div [hidden]="priceCtrl.valid || priceCtrl.pristine" class="alert alert-danger">Item PRICE is required.
             </div>
 
             <label for="itemDescription"><b>DESCRIPTION *</b></label>
-            <input type="text" maxlength="100" id="itemDescription" [(ngModel)]="itemDescription"
+            <input type="text" maxlength="100" id="itemDescription" [(ngModel)]="model.itemDescription"
                 placeholder="ex. This is a evaporated milk." name="itemDescription" />
         </div>
 
         <div class="clearfix">
             <div>
                 <form (ngSubmit)="onSubmit(itemForm)" >
-                    <button type="button" class="cancelbtn" (click)="newItem(); itemForm.reset()">RESET</button>
-                    <button type="addbtn" class="addbtn" [disabled]="!itemForm.form.valid">ADD</button>
+                    <button routerLink="/" class="cancelbtn">
+                        <b>Close</b>
+                    </button>
+                    <button type="addbtn" class="addbtn" [disabled]="!itemForm.form.valid">Submit</button>
                 </form>
             </div>
         </div>

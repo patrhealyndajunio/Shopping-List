@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormControl, NgForm } from '@angular/forms';
+import { NgForm } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LocalDataService } from '../services/local-data.service';
 import { Item } from '../shoppingList';
 
@@ -9,36 +10,46 @@ import { Item } from '../shoppingList';
   styleUrls: ['./item-form.component.scss']
 })
 export class ItemFormComponent {
-
-  title = 'To be changed';
-  model = new Item(1);
-
-  itemID = 0;
-  itemName = '';
-  itemDescription = '';
-  itemQuantity = '';
-  itemPrice = '';
+  mode = 'create';
+  id = 0;
+  title = '';
+  model?: Item;
   
   /**
    * Remove ngOnInit since we don't have to do anything with it at the moment
    */
-  constructor(private localDataService: LocalDataService) {
-    this.itemID = localDataService.getNextId();
+  constructor(
+    private localDataService: LocalDataService, 
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
+    this.mode = this.router.url === '/shopping-list/create' ? 'create' : 'edit';
+    if (this.mode === 'create') {
+      this.model = new Item(localDataService.getNextId());
+      this.title = 'Create new Item';
+    } else {
+      this.id = parseInt(this.route.snapshot.paramMap.get('id') || '0');
+      const result = localDataService.getItemById(this.id);
+
+      if (!this.id || !result) {
+        this.router.navigateByUrl('/');
+      } else {
+        this.model = result;
+        this.title = 'Update Item'
+      }
+    }
   }
 
   onSubmit(itemForm: NgForm) {
-    this.localDataService.addItem({
-      itemName: this.itemName,
-      itemDescription: this.itemDescription,
-      itemQuantity: parseInt(this.itemQuantity),
-      itemPrice: parseFloat(this.itemPrice),
-    });
+    if (this.model && this.mode === 'create') {
+      this.localDataService.addItem(this.model);
+    } else if (this.model && this.mode == 'edit') {
+      this.localDataService.updateItem(this.id, this.model);
+    }
 
+   
     itemForm.reset();
   }
-
-  newItem(): void {
-    this.model = new Item(this.model.itemID++, 'MILO', 'This is a energy drink.', 8, 143.75);
-  }
+  
 
 }

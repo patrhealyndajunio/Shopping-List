@@ -3,6 +3,7 @@ import { Item } from "../shoppingList";
 
 @Injectable({ providedIn: "root" })
 export class LocalDataService {
+  state = 'listing';
   shoppingItems = new Array<Item>();
 
   addItem(item: Partial<Item>) {
@@ -14,6 +15,28 @@ export class LocalDataService {
       ...item,
       itemID: this.getNextId(),
     });
+  }
+
+  updateItem(id: number, updatedItem: Partial<Item>) {
+    this.shoppingItems = this.shoppingItems.map((item) => {
+      if (item.itemID == id) {
+        return {
+          ...item,
+          ...updatedItem,
+          itemID: id,
+        }
+      }
+
+      return item;
+    });
+  }
+
+  getState() {
+    return this.state;
+  }
+
+  getItemById(id: number): Item | undefined {
+    return this.shoppingItems.find((item) => item.itemID == id);
   }
 
   getNextId() {

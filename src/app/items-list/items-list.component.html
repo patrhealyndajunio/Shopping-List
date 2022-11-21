@@ -12,10 +12,26 @@
         <td>{{item.itemQuantity}}</td>
         <td>{{item.itemPrice | currency:'PHP' : 'symbol':'1.2-2'}}</td>
         <td>{{item.itemDescription}}</td>
-        <td><button type="button" class="delete" (click)="deleteItem(item.itemID)">x</button></td>
-        <td><a routerLink="/update-list/{{item.itemID}}">Update</a></td>
+        <td>
+            <button type="button" class="delete" (click)="deleteItem(item.itemID)">
+                x
+            </button>
+        </td>
+        <td>
+            <button routerLink="/shopping-list/{{item.itemID}}/edit" class="updateBtn">
+                Update
+            </button>
+        </td>
     </tr>
 </table>
 <table class="emptyList" *ngIf="localDataService.shoppingItems.length === 0">
     <br><p>Shopping List is Empty.<br/></p>
 </table>
+
+<div class="container" *ngIf="url === '/'">
+    <nav>
+        <button routerLink="/shopping-list/create" class="addBtn">
+            <b>ADD ITEM</b>
+        </button>
+    </nav>
+</div>

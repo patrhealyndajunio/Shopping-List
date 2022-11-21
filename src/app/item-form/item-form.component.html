@@ -1,1 +1,44 @@
-<p>item-form works!</p>
+<br>
+<div>
+    <form class="addListForm" action="/add-list">
+        <div class="container">
+            <h1 class="addListLabel">{{title}}</h1>
+            <p>Please fill in this form to add items.</p>
+            <hr>
+            <label for="itemID"><b>ID *</b></label>
+            <input type="text" id="itemID" [(ngModel)]="model.itemID" placeholder="ex. 1" name="itemID" required
+                #itemID="ngModel" />
+            <div [hidden]="itemID.valid || itemID.pristine" class="alert alert-danger">Item ID is required.</div>
+
+            <label for="itemName"><b>NAME *</b></label>
+            <input type="text" id="itemName" maxlength="50" [(ngModel)]="model.itemName" placeholder="ex. MILK"
+                name="itemName" required #itemName="ngModel" />
+            <div [hidden]="itemName.valid || itemName.pristine" class="alert alert-danger">Item NAME is required.</div>
+
+            <label for="itemQuantity"><b>QUANTITY *</b></label>
+            <input type="number" min="1" id="itemQuantity" [(ngModel)]="model.itemQuantity" placeholder="ex. 7"
+                name="itemQuantity" required #itemQuantity="ngModel" />
+            <div [hidden]="itemQuantity.valid || itemQuantity.pristine" class="alert alert-danger">Item QUANTITY is
+                required.</div>
+
+            <label for="itemPrice"><b>PRICE *</b></label>
+            <input type="number" id="itemPrice" [(ngModel)]="model.itemPrice" placeholder="ex. 143.25" name="itemPrice"
+                required #itemPrice="ngModel" />
+            <div [hidden]="itemPrice.valid || itemPrice.pristine" class="alert alert-danger">Item PRICE is required.
+            </div>
+
+            <label for="itemDescription"><b>DESCRIPTION *</b></label>
+            <input type="text" maxlength="100" id="itemDescription" [(ngModel)]="model.itemDescription"
+                placeholder="ex. This is a evaporated milk." name="itemDescription" #itemDescription="ngModel" />
+        </div>
+
+        <div class="clearfix">
+            <div>
+                <form (ngSubmit)="onSubmit()" #itemForm="ngForm">
+                    <button type="button" class="cancelbtn" (click)="newItem(); itemForm.reset()">RESET</button>
+                    <button type="addbtn" class="addbtn" [disabled]="!itemForm.form.valid">ADD</button>
+                </form>
+            </div>
+        </div>
+    </form>
+</div>

@@ -8,19 +8,19 @@
             <label for="itemID"><b>ID *</b></label>
             <input type="text" id="itemID" readonly [value]="model.itemID" placeholder="ex. 1" name="itemID" required />
 
-            <label for="itemName"><b>NAME *</b></label>
+            <label for="nameCtrl"><b>NAME *</b></label>
             <input type="text" maxlength="50" [(ngModel)]="model.itemName" placeholder="ex. MILK" name="itemName" required
                 #nameCtrl="ngModel" />
             <div [hidden]="nameCtrl.valid || nameCtrl.pristine" class="alert alert-danger">Item NAME is required.</div>
 
-            <label for="itemQuantity"><b>QUANTITY *</b></label>
+            <label for="qtyCtrl"><b>QUANTITY *</b></label>
             <input type="number" min="1" [(ngModel)]="model.itemQuantity" placeholder="ex. 7" name="itemQuantity" required
                 #qtyCtrl="ngModel" />
             <div [hidden]="qtyCtrl.valid || qtyCtrl.pristine" class="alert alert-danger">
                 Item QUANTITY is required.
             </div>
 
-            <label for="itemPrice"><b>PRICE *</b></label>
+            <label for="priceCtrl"><b>PRICE *</b></label>
             <input type="number" id="itemPrice" [(ngModel)]="model.itemPrice" placeholder="ex. 143.25" name="itemPrice"
                 required #priceCtrl="ngModel" min="1" />
             <div [hidden]="priceCtrl.valid || priceCtrl.pristine" class="alert alert-danger">Item PRICE is required.

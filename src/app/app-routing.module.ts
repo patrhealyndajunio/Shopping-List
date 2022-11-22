@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ItemFormComponent } from './item-form/item-form.component';
+import { ItemsListComponent } from './items-list/items-list.component';
 
 const routes: Routes = [
   { path: 'shopping-list/create', component: ItemFormComponent },

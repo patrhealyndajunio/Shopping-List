@@ -14,12 +14,12 @@
         <td>{{item.itemDescription}}</td>
         <td>
             <button type="button" class="delete" (click)="deleteItem(item.itemID)">
-                x
+                X
             </button>
         </td>
         <td>
-            <button routerLink="/shopping-list/{{item.itemID}}/edit" class="updateBtn">
-                Update
+            <button type="button" class="update" routerLink="/shopping-list/{{item.itemID}}/edit">
+                U
             </button>
         </td>
     </tr>

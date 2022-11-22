@@ -131,7 +131,7 @@ button:hover {
 
 //new itemList
 .itemList {
-  margin:  0 0 2em 0;
+  margin: 0 0 2em 0;
   list-style-type: none;
   padding: 0;
   width: 100%;
@@ -168,7 +168,7 @@ button:hover {
   background-color: #FFBF00;
   display: inline-block;
   font-size: small;
-  color:black;
+  color: black;
   padding: 5px;
   // min-width: 16px;
   text-align: center;
@@ -180,4 +180,14 @@ button.delete {
   background-color: #f44336;
   margin: 0;
   padding: 5px;
+  border: 2px solid green;
+}
+
+
+button.update {
+  position: inline-block;
+  background-color: #FFBF00;
+  margin: 0;
+  padding: 5px;
+  border: 2px solid green;
 }

@@ -5,11 +5,6 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './delete-list.component.html',
   styleUrls: ['./delete-list.component.scss']
 })
-export class DeleteListComponent implements OnInit {
-
+export class DeleteListComponent {
   constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

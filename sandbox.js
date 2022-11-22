@@ -1,60 +1,47 @@
-let firstName = "jet";
-firstName='pat';
-console.log(firstName);
 
-// Immutability notes, objects cannot be reassigned but they are not immutable
+// Spreading
+// ...varname
 
-const person = {
-    name: "jet"
+function multiParam(p1, p2, p3) {
+    console.log(p1);
+    console.log(p2);
+    console.log(p3);
 }
 
-person.name = 'Pat'
+const params = [1, 2, 3];
+multiParam(...params);
 
-console.log(person)
+// Merge by spread
+const shplst1 = ['banana', 'apple', 'talong'];
+const shplst2 = ['sayote', 'bawang', 'onions'];
 
-class Author {
-    constructor(private writingTool: IWritingTool) {}
+const normalMerge = shplst1.concat(shplst2);
+const spreadMerge = [...shplst1, ...shplst2];
 
-    write() {
-        this.writingTool.write();
-    }
-}
+console.log(spreadMerge);
 
-// Inheritance
-class WritingTool {
-    ink = 100;
+// Object spreads
+const defaultItem = {
+    id: 0,
+    name: 'Item name placeholder',
+    qty: 1,
+    price: 10,
+    description: 'Lorem Ipsum'
+};
 
-    write() {
-        this.ink--;
-    }
-}
+const modifiedItem = {
+    ...defaultItem,
+    id: 2,
+    newProp: 'this is appended',
+    price: 20
+};
 
-class Marker extends WritingTool {
-    write() {
-        // markers consume double the ink
-        super.write();
-        this.ink--;
-    }
-}
+console.log(defaultItem);
+console.log(modifiedItem);
 
-class Ballpen extends WritingTool {
-    
-}
+const newDefault = {
+    id: 1,
+    ...defaultItem
+};
 
-// Polymorphism
-const teacher = new Author(new Marker());
-const student = new Author(new Ballpen());
-
-// =============================
-
-interface IWritingTool {
-    write(): void;
-}
-
-class WritingTool implements IWritingTool {
-    ink = 100;
-
-    write() {
-        this.ink--;
-    }
-}
+console.log(newDefault); //changes overwritten by defaultItem
